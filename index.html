@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Roblox slot ID tester</title>
+
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <section class="leaked-section">
+        <p>Known leaked IDs</p>
+        <ul class="leaked-section-list">
+          <li class="leaked-section-list__id">132415726011536</li>
+          <li class="leaked-section-list__id">99564792390516</li>
+          <li class="leaked-section-list__id">91231291499869</li>
+          <li class="leaked-section-list__id">140500837726017</li>
+          <li class="leaked-section-list__id">134272357316739</li>
+          <li class="leaked-section-list__id">81038846683429</li>
+          <li class="leaked-section-list__id">80674754955623</li>
+          <li class="leaked-section-list__id">76858219520340</li>
+          <li class="leaked-section-list__id">115335645474813</li>
+          <li class="leaked-section-list__id">90528505577560</li>
+          <li class="leaked-section-list__id">96052230452741</li>
+          <li class="leaked-section-list__id">95667824856863</li>
+          <li class="leaked-section-list__id">18305698932</li>
+          <li class="leaked-section-list__id">137322781556733</li>
+          <li class="leaked-section-list__id">85185560200363</li>
+          <li class="leaked-section-list__id">98297124948762</li>
+          <li class="leaked-section-list__id">77737466422498</li>
+          <li class="leaked-section-list__id">85096117550118</li>
+          <li class="leaked-section-list__id">82477945121942</li>
+          <li class="leaked-section-list__id">78469021884947</li>
+          <li class="leaked-section-list__id">120763973017934</li>
+          <li class="leaked-section-list__id">81789950341963</li>
+          <li class="leaked-section-list__id">80932104455396</li>
+          <li class="leaked-section-list__id">139425451314492</li>
+          <li class="leaked-section-list__id">96514390358882</li>
+          <li class="leaked-section-list__id">18923577009</li>
+          <li class="leaked-section-list__id">91231291499869</li>
+          <li class="leaked-section-list__id">100366275896439</li>
+          <li class="leaked-section-list__id">18305698932</li>
+          <li class="leaked-section-list__id">78099972538680</li>
+          <li class="leaked-section-list__id">18783459268</li>
+          <li class="leaked-section-list__id">84556904678745</li>
+          <li class="leaked-section-list__id">108482805113591</li>
+          <li class="leaked-section-list__id">18305698932</li>
+          <li class="leaked-section-list__id">78099972538680</li>
+          <li class="leaked-section-list__id">129194264721696</li>
+          <li class="leaked-section-list__id">108482805113591</li>
+          <li class="leaked-section-list__id">140500837726017</li>
+          <li class="leaked-section-list__id">18305698932</li>
+          <li class="leaked-section-list__id">73096892712986</li>
+          <li class="leaked-section-list__id">120662800661697</li>
+        </ul>
+      </section>
+      <section class="id-input-section">
+        <form>
+          <label for="idinput">Your ID : </label>
+          <input type="text" id="idinput" name="idinput" />
+          <button class="id-submit-button">Submit</button>
+          <button class="clear-id-list-button">Clear list</button>
+          <div class="id-input-list-wrapper">
+            <ul class="id-input-list"></ul>
+          </div>
+        </form>
+        <button class="id-check-button">Check ID</button>
+      </section>
+    </div>
+    <div class="no-leaks-screen hidden">
+      <p>none of the IDs tested are appart of the known ID leaks</p>
+      <button class="no-leaks-menu-button">Return to ID checker</button>
+    </div>
+    <div class="leaks-screen hidden">
+      <p>
+        At least one or multiple of these IDs is leaked, we suggest bricking or
+        deleting it / them from your inventory after saving it / them again to
+        create a new ID for it / them
+      </p>
+      <ul class="leaked-ids-list"></ul>
+      <button class="leaks-menu-button">Return to ID checker</button>
+    </div>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
