@@ -18,8 +18,8 @@ const $leaksMenuButton = document.querySelector(".leaks-menu-button");
 let idList = [];
 
 function addId(currentId) {
-  let li = document.createElement("list");
-  let li2 = document.createElement("list");
+  let li = document.createElement("li");
+  let li2 = document.createElement("li");
 
   li.appendChild(document.createTextNode(currentId));
   $idInputList.appendChild(li);
