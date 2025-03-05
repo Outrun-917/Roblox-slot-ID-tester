@@ -12,70 +12,63 @@ const $mainWrapper = document.querySelector(".main-wrapper");
 const $noLeaksScreen = document.querySelector(".no-leaks-screen");
 const $leaksScreen = document.querySelector(".leaks-screen");
 
-const $noLeaksMenuButton = document.querySelector(".no-leaks-menu-button");
-const $leaksMenuButton = document.querySelector(".leaks-menu-button");
+const $menuButtons = document.querySelectorAll(".menu-button")
 
-let idList = [];
+let hasId = false;
+let isLeaked = false;
 
-function addId(currentId) {
-  let li = document.createElement("li");
-  let li2 = document.createElement("li");
+function addId() {
+  const $newId = document.createElement("li");
+  $newId.classList.add("id-input-list-element");
+  $newId.textContent = $idInput.value;
 
-  li.appendChild(document.createTextNode(currentId));
-  $idInputList.appendChild(li);
-  li2.appendChild(document.createTextNode(currentId));
-  $leakedIdsList.appendChild(li2);
+  $idInputList.appendChild($newId);
+  hasId = true;
+
+  $leakedSectionListIds.forEach(($leakedSectionListId) => {
+    if ($newId.textContent === $leakedSectionListId.innerHTML) {
+      $leakedIdsList.appendChild($newId.cloneNode(true));
+      isLeaked = true;
+    }
+  });
 }
 
-$idSubmitButton.addEventListener("click", function (e) {
+$idSubmitButton.addEventListener("click", (e) => {
   e.preventDefault();
-
   if ($idInput.value !== "") {
-    addId($idInput.value);
-    idList.push($idInput.value);
-    console.log($idInputList);
-    console.log(idList);
+    addId();
   }
 });
 
-$clearIdListButton.addEventListener("click", function (e) {
+$idCheckButton.addEventListener("click", (e) => {
   e.preventDefault();
-
-  $idInputList.innerHTML = "";
-  $leakedIdsList.innerHTML = "";
-  $idInput.value = "";
-  idList = [];
-});
-
-$idCheckButton.addEventListener("click", function (e) {
-  e.preventDefault();
-  let isTrue = false;
-
-  $leakedSectionListIds.forEach(function ($leakedSectionListId) {
-    idList.forEach(function (idListElement) {
-      if ($leakedSectionListId.innerHTML === idListElement) {
-        isTrue = true;
-        $mainWrapper.classList.add("hidden");
-        $leaksScreen.classList.remove("hidden");
-      }
-    });
-  });
-  if (isTrue === false) {
+  if (hasId === true) {
+    if (isLeaked === true) {
+      $mainWrapper.classList.add("hidden");
+      $leaksScreen.classList.remove("hidden");
+      return;
+    }
     $mainWrapper.classList.add("hidden");
     $noLeaksScreen.classList.remove("hidden");
+  } else {
+    $idInput.value = "Paste your ID here";
   }
 });
 
-$noLeaksMenuButton.addEventListener("click", function (e) {
+$clearIdListButton.addEventListener("click", (e) => {
   e.preventDefault();
-
-  $mainWrapper.classList.remove("hidden");
-  $noLeaksScreen.classList.add("hidden");
+  $idInputList.innerHTML = "";
+  $leakedIdsList.innerHTML = "";
+  $idInput.value = ""
+  hasId = false;
+  isLeaked = false;
 });
 
-$leaksMenuButton.addEventListener("click", function (e) {
-  e.preventDefault();
-
-  $mainWrapper.classList.remove("hidden");
-  $leaksScreen.classList.add("hidden");
-});
+$menuButtons.forEach(($menuButton) => {
+  $menuButton.addEventListener("click", (e) => {
+    e.preventDefault()
+    $noLeaksScreen.classList.add("hidden")
+    $leaksScreen.classList.add("hidden")
+    $mainWrapper.classList.remove("hidden")
+  })
+})
